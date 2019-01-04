@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="jumbotron">
+  <h1>Please Enter Team Name and Your Team Mate's Email!</h1>
+</div>
+
+  <form method="POST" action="{% url 'afterTeam' %}">
+    {% csrf_token %}
+
+    <label for="team">Team Name: </label>
+    <input type="text" name="team" placeholder="Team Name">
+    <br>
+    <label for="teammate">Team Mate's Email </label>
+    <input type="text" name="teammate" placeholder="Team Mate's Email">
+    <br>
+    <input type="submit" name="" value="Submit Team">
+
+    </form>
+{% else %}
+           <p>You are not Logged In!</p>
+{% endif %}
+{% endblock content %}

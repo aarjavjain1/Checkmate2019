@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+           <p class="display-4">Welcome, {{ user.first_name }} {{ user.last_name }}!</p>
+{% else %}
+           <p>You are not Logged In!</p>
+{% endif %}
+{% endblock content %}

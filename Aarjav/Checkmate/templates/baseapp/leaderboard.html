@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="jumbotron">
+  <h1>LEADERBOARD!</h1>
+</div>
+{% if all_teams %}
+    <table border="4px solid black">
+
+      <thead>
+        <th>Team Name</th>
+        <th>Points</th>
+      </thead>
+
+      {% for users in all_teams %}
+        <tr>
+          <td>{{ users.team_name }}</td>
+          <td>{{ users.score }}</td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      <h1>No Teams Found!</h1>
+    {% endif %}
+
+    </table>
+{% else %}
+           <p>You are not Logged In!</p>
+{% endif %}
+{% endblock content %}
