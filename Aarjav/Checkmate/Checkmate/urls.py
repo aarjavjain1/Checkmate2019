@@ -21,8 +21,8 @@ from baseapp.views import selectTeam, afterTeam, leaderboard
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^login/$', views.login, name='login'),
-    url(r'^logout/$', views.logout, name='logout'),
+    url(r'^login/$', views.LoginView.as_view(template_name='home.html'), name='login'),
+    url(r'^logout/$', views.LogoutView.as_view(template_name='home.html'), name='logout'),
     url(r'^auth/', include('social_django.urls', namespace='social')),
     url(r'^$', home, name='home'),
     url(r'^teams/', selectTeam, name='selectTeam'),

@@ -35,6 +35,7 @@ def afterTeam(request):
         teams_all = Team.objects.all()
         Team_exists = False
         Teammate_exists = False
+        team_id = -1
 
 
         for myteam in teams_all:
